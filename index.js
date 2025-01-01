@@ -10,7 +10,17 @@ const
   },
   drawings = [
     () => {
-      resize()
+      const size = 18
+      for(let x = 0; x < canvas.width; x += 2*size){
+        for(let y = 0; y < canvas.height; y+= size){
+          switch(Math.sin(x / Math.cos(y)) > 0){
+            case true: ctx.fillRect(x,y,2*size,size); break;
+            case false: ctx.strokeRect(x,y,size, size); break;
+          }
+        }
+      }
+    },
+    () => {
       const size = 6
       for(let x = 0; x < canvas.width; x += size){
         for(let y = 0; y < canvas.height; y+= size){
@@ -20,7 +30,7 @@ const
           }
         }
       }
-    }
+    },
   ],
   draw = (index = 0) => {
     resize()
