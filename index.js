@@ -3,7 +3,7 @@ const
   ctx = canvas.getContext('2d')
 
 const 
-  index = 1,
+  index = 0,
   resize = () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
