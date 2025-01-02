@@ -11,17 +11,17 @@ const
   drawings = [
     // day 3
     () => {
-      ctx.beginPath()
-      ctx.moveTo(0, 0)
-      for(let x = 0; x < canvas.width;x+=5){
-        for(let y = 0; y < canvas.height;y+=5){
-          ctx.rotate(Math.PI/10)
-          ctx.lineTo(x+1, y)
-          ctx.lineWidth+=0.00001
+      let size = 1
+      for(let x = 0; x < canvas.width; x++){
+        for(let y = 0; y < canvas.height; y++){
+          ctx.rotate(x*y)
+          switch(Math.floor(Math.random()*2)+1){
+            case 1: ctx.fillRect(canvas.width/2 + x, canvas.height/2 + y, size, size); break
+            case 2: ctx.strokeRect(canvas.width/2 + x, canvas.height/2 + y, size, size); break
+          }
+          size+=0.000025
         }
       }
-      ctx.closePath()
-      ctx.stroke()
     },
     // day 2
     () => {
