@@ -3,12 +3,41 @@ const
   ctx = canvas.getContext('2d')
 
 const 
-  index = 0,
+  index = 1,
   resize = () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
   },
   drawings = [
+    // day 3
+    () => {
+      ctx.beginPath()
+      ctx.moveTo(0, 0)
+      for(let x = 0; x < canvas.width;x+=5){
+        for(let y = 0; y < canvas.height;y+=5){
+          ctx.rotate(Math.PI/10)
+          ctx.lineTo(x+1, y)
+          ctx.lineWidth+=0.00001
+        }
+      }
+      ctx.closePath()
+      ctx.stroke()
+    },
+    // day 2
+    () => {
+      ctx.beginPath()
+      ctx.moveTo(0, 0)
+      for(let x = 0; x < canvas.width;x+=5){
+        for(let y = 0; y < canvas.height;y+=5){
+          ctx.translate(x+1,y+1)
+          ctx.rotate(Math.PI/10)
+          ctx.lineTo(x+1, y)
+          ctx.lineWidth+=0.00001
+        }
+      }
+      ctx.closePath()
+      ctx.stroke()
+    },
     // day 1
     () => {
       const size = 6
