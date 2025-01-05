@@ -9,6 +9,18 @@ const
     canvas.height = window.innerHeight
   },
   drawings = [
+    // day 6 (day 5 without rotation)
+    () => {
+      const squares = 100000
+      let size = 100000
+      ctx.save()
+      ctx.translate(canvas.width / 2, canvas.height / 2)
+      for (let i = 0; i < squares; i++) {
+        ctx.fillStyle = Math.floor(Math.random() * 2) + 1 == 1 ? 'black' : 'white'
+        ctx.fillRect(0 - size / 2, 0 - size / 2, size - i, size - i)
+      }
+      ctx.restore()
+    },
     // day 5
     () => {
       const squares = 100000
