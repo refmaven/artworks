@@ -9,6 +9,17 @@ const
     canvas.height = window.innerHeight
   },
   drawings = [
+    // day 7
+    () => {
+      ctx.save()
+ctx.translate(canvas.width / 2, canvas.height / 2)
+      for(let size = 0; size < 10000; size +=3){
+              
+      ctx.strokeRect(0-size/2,0-size/2,size,size)
+      ctx.rotate(0.005)
+      }
+ctx.restore()
+    },
     // day 6 (day 5 without rotation)
     () => {
       const squares = 100000
