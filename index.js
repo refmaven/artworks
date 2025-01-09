@@ -9,9 +9,30 @@ const
     canvas.height = window.innerHeight
   },
   drawings = [
-    // day 9
-    
-    // day 8 / day 9(-1)
+    // day 9 (day 4 dark)
+    () => {
+      ctx.fillStyle = 'black'
+      ctx.fillRect(0,0,canvas.width, canvas.height)
+      
+      ctx.moveTo(canvas.width/2,canvas.height/2)
+      for(let i = 0; i < 500;i++){
+        ctx.beginPath()
+        let color = i/500 * 255
+        ctx.fillStyle = ctx.strokeStyle = 'white'
+        const randomX = Math.floor(Math.random() * canvas.width) + 1, 
+        randomY = Math.floor(Math.random() * canvas.height)+1
+        ctx.lineTo(randomX, randomX + randomY)
+        switch(Math.floor(Math.random() * 4) + 1){
+          case 1: ctx.fillRect(randomX, randomY, 25,25); break
+          case 2: case 3: ctx.strokeStyle = 'black'; ctx.strokeRect(randomX, randomY, 25, 25); break
+          case 4: ctx.save(); ctx.rotate(Math.PI / 4); ctx.strokeRect(randomX, randomY, 25,25); ctx.restore(); break
+        }
+        ctx.lineWidth += 0.001
+        ctx.closePath()
+      }
+      ctx.stroke()
+    },
+    // day 9(-1) / day 8 late (day 4 chaotic)
     () => {
       ctx.beginPath()
       ctx.moveTo(canvas.width/2,canvas.height/2)
