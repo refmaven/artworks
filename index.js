@@ -9,6 +9,27 @@ const
     canvas.height = window.innerHeight
   },
   drawings = [
+    // day 9
+    
+    // day 8 / day 9(-1)
+    () => {
+      ctx.beginPath()
+      ctx.moveTo(canvas.width/2,canvas.height/2)
+      for(let i = 0; i < 1000;i++){
+        const randomX = Math.floor(Math.random() * canvas.width) + 1, 
+        randomY = Math.floor(Math.random() * canvas.height)+1
+        ctx.rotate(i/2)
+        ctx.lineTo(randomX, randomY)
+        switch(Math.floor(Math.random() * 3) + 1){
+          case 1: ctx.fillRect(randomX, randomY, 25,25); break
+          case 2: ctx.strokeRect(randomX, randomY, 25, 25); break
+          case 3: ctx.save(); ctx.rotate(Math.PI / 4); ctx.strokeRect(randomX, randomY, 10,10); ctx.restore(); break
+        }
+        ctx.lineWidth += 0.0001
+      }
+      ctx.closePath()
+      ctx.stroke()
+    },
     // day 7
     () => {
       ctx.save()
