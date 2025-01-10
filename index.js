@@ -1,14 +1,26 @@
 const
   canvas = document.querySelector('#c'),
-  ctx = canvas.getContext('2d')
-
-const 
-  index = 0,
-  resize = () => {
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-  },
+  ctx = canvas.getContext('2d'),
   drawings = [
+    // day 10
+    () => {
+      const shapes = 10000
+      let size = 600
+      ctx.save()
+      ctx.translate(canvas.width/2, canvas.height/2)
+      
+      for(let i = 0;i<shapes;i++){
+        ctx.translate(10,1)
+        ctx.fillStyle = Math.floor(Math.random() * 2) + 1 == 1 ? 'black' : 'white'
+        ctx.beginPath()
+ctx.arc(canvas.width-2*size, canvas.height-2*size, size, 0, Math.PI * 2)
+ctx.fill()
+ctx.closePath()
+size--
+if(size == 0) break
+      }
+      ctx.restore()
+    },
     // day 9 (day 4 dark)
     () => {
       ctx.fillStyle = 'black'
@@ -148,8 +160,10 @@ ctx.restore()
       }
     },
   ],
+  index = 0,
   draw = (index = 0) => {
-    resize()
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
     drawings[index]()
   }
 
