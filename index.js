@@ -10,7 +10,7 @@ const
       ctx.translate(canvas.width/2, canvas.height/2)
       
       for(let i = 0;i<shapes;i++){
-        ctx.translate(10,-1)
+        ctx.translate(10,-20)
         ctx.fillStyle = Math.floor(Math.random() * 2) + 1 == 1 ? 'black' : 'white'
         ctx.beginPath()
 ctx.arc(canvas.width-2*size, canvas.height-2*size, size, 0, Math.PI * 2)
