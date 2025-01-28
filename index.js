@@ -2,6 +2,10 @@ const
   canvas = document.querySelector('#c'),
   ctx = canvas.getContext('2d'),
   drawings = [
+    // day ??
+    () => {
+      
+    },
     // day 10
     () => {
       const shapes = 10000
@@ -12,11 +16,11 @@ const
       for(let i = 0;i<shapes;i++){
         ctx.fillStyle = Math.floor(Math.random() * 2) + 1 == 1 ? 'black' : 'white'
         ctx.beginPath()
-ctx.arc(canvas.width-2*size, canvas.height-2*size, size, 0, Math.PI * 2)
-ctx.fill()
-ctx.closePath()
-size--
-if(size == 0) break
+        ctx.arc(canvas.width-2*size, canvas.height-2*size, size, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.closePath()
+        size--
+        if(size == 0) break
       }
       ctx.restore()
     },
@@ -65,13 +69,12 @@ if(size == 0) break
     // day 7
     () => {
       ctx.save()
-ctx.translate(canvas.width, canvas.height)
-      for(let size = 0; size < 10000; size +=3){
-              
-      ctx.strokeRect(0-size/2,0-size/2,size,size)
-      ctx.rotate(0.005)
+      ctx.translate(canvas.width, canvas.height)
+      for(let size = 0; size < 10000; size +=3){ 
+        ctx.strokeRect(0-size/2,0-size/2,size,size)
+        ctx.rotate(0.005)
       }
-ctx.restore()
+      ctx.restore()
     },
     // day 6 (day 5 without rotation)
     () => {
